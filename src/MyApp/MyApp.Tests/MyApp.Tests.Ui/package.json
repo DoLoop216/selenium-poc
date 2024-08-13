@@ -1,5 +1,13 @@
 {
   "type": "module",
+  "scripts": {
+    "test:github-action-firefox": "ENV=github-action BROWSER=firefox node index.js",
+    "test:github-action-chrome": "ENV=github-action BROWSER=chrome node index.js",
+    "test:local-chrome": "ENV=local BROWSER=chrome node index.js",
+    "test:local-firefox": "ENV=local BROWSER=firefox node index.js",
+    "test:local-docker-compose-chrome": "ENV=github-action BROWSER=chrome SELENIUM_SERVER=chrome node index.js",
+    "test:local-docker-compose-firefox": "ENV=github-action BROWSER=firefox SELENIUM_SERVER=firefox node index.js"
+  },
   "dependencies": {
     "assert": "^2.1.0",
     "selenium-webdriver": "^4.23.0"
