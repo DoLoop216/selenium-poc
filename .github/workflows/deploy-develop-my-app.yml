@@ -28,4 +28,6 @@ jobs:
         run: |-
           cd src/MyApp/MyApp.Tests/MyApp.Tests.Ui
           npm i
-          npm run test:github-action-chrome
+          export ENV=github-action
+          export BROWSER=chrome
+          npm run test
