@@ -16,7 +16,7 @@ jobs:
       
     services:
       selenium:
-        image: selenium/standalone-chrome
+        image: selenium/standalone-firefox
         options: --shm-size=2gb
         
     steps:
@@ -29,5 +29,5 @@ jobs:
           cd src/MyApp/MyApp.Tests/MyApp.Tests.Ui
           npm i
           export ENV=github-action
-          export BROWSER=chrome
+          export BROWSER=firefox
           npm run test
