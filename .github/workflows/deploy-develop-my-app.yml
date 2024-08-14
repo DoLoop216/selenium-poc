@@ -1,0 +1,33 @@
+name: Deploying MyApp to develop environment
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "develop" ]
+    
+jobs:
+#  deploy app
+  run-selenium-tests:
+#    need: [ deploy-app ]
+    runs-on: ubuntu-latest
+    
+    container:
+      image: node:22
+      
+    services:
+      selenium:
+        image: selenium/standalone-chrome
+        options: --shm-size=2gb
+        
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        
+      - name: Run tests
+        run: |-
+          cd src/MyApp/MyApp.Tests/MyApp.Tests.Ui
+          npm i
+          export ENV=github-action
+          export BROWSER=chrome
+          npm run test

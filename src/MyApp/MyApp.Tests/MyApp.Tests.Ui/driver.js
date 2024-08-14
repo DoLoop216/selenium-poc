@@ -36,6 +36,8 @@ const createLocalDriver = () => {
 
 const createRemoteDriver = () => {
     const seleniumServer = process.env.SELENIUM_SERVER || 'selenium'
+    console.log(`http://${seleniumServer}:4444`)
+    console.log(`Using browser: ` + process.env.BROWSER)
     return new Builder()
         .usingServer(`http://${seleniumServer}:4444`)
         .forBrowser(process.env.BROWSER)

@@ -44,4 +44,7 @@ fs.readdir(testsDir, async (err, files) => {
     console.log(`Passed tests: ${passedTests}`)
     console.log(`Failed tests: ${totalTests - passedTests}`)
     console.log(`====================`)
+    
+    if (totalTests !== passedTests)
+        throw new Error('Selenium UI tests failing!')
 })
